@@ -1,0 +1,43 @@
+# Byte-compiled files
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment directories
+venv/
+env/
+.venv/
+.env/
+
+# Distribution/Packaging
+build/
+dist/
+*.egg-info/
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python coverage reports
+*.cover
+*.coverage
+.coverage.*
+*.hypothesis/
+.cache/
+
+# Logs and temporary files
+*.log
+*.pot
+*.py~
+*.bak
+*.tmp
+
+# Other files to ignore
+.DS_Store  # macOS
+Thumbs.db  # Windows
