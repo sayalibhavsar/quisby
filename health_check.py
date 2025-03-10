@@ -85,8 +85,8 @@ def check_virtual_environment():
     """Check if we are inside a Python 3.9 virtual environment."""
     if hasattr(sys, 'real_prefix') or (hasattr(sys, 'base_prefix') and sys.base_prefix != sys.prefix):
         custom_logger.info("Running inside a virtual environment.")
-        if sys.version_info[:2] != (3, 9):
-            custom_logger.info("You are not using Python 3.9 within the virtual environment.")
+        if sys.version_info < (3, 9):
+            custom_logger.info("You are not using Python 3.9 or more within the virtual environment.")
             sys.exit(1)
     else:
         custom_logger.warning("Not running inside a virtual environment. Create a virtual environment with python3.9. "
@@ -100,11 +100,11 @@ def check_virtual_environment():
 
 def check_python_version():
     """Check if the current Python version is 3.9."""
-    if sys.version_info[:2] != (3, 9):
-        custom_logger.error("Python 3.9 is required to run this script.")
+    if sys.version_info[:2] < (3, 9):
+        custom_logger.error("Python 3.9 or more is required to run this script.")
         sys.exit(1)
     else:
-        custom_logger.info("Python 3.9 is installed.")
+        custom_logger.info("Python 3.9 or more is installed.")
 
 
 def validate_config_values(config):
