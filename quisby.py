@@ -462,7 +462,7 @@ if __name__ == "__main__":
 
     if not args.config:
         custom_logger.error("No configuration path mentioned.")
-        exit(0)
+        exit(1)
     else:
         util.config_location = args.config
     custom_logger.info("Config path : " + util.config_location)
