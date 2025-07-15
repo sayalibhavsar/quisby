@@ -459,12 +459,20 @@ if __name__ == "__main__":
     noti_flag = True
     if args.no_notify:
         noti_flag = False
+    
+    default_config_path = os.path.expanduser("~/.quisby/config/config.ini")
 
-    if not args.config:
-        custom_logger.error("No configuration path mentioned.")
-        exit(1)
-    else:
+    if args.config:
         util.config_location = args.config
+    else:
+        if os.path.exists(default_config_path):
+            custom_logger.warning(f"No --config argument provided. Using default: {default_config_path}")
+            util.config_location = default_config_path
+        else:
+            custom_logger.error(f"No configuration provided and default config not found at: {default_config_path}")
+            exit(1)
+    
+
 
     print("**********************************************************************************************")
     print("**********************************************************************************************")
